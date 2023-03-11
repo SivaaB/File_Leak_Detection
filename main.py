@@ -1,6 +1,5 @@
 import pickle
 
-
 # Create a dictionary to store usernames and passwords
 
 users = {}
