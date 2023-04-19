@@ -5,6 +5,7 @@ from threading import Thread
 # Create a dictionary to store usernames and passwords
 users = {}
 company={}
+
 # Function to save the user dictionary to a binary file
 def save_users():
     with open("users.bin", "wb") as f:
@@ -30,10 +31,10 @@ def load_company():
     except FileNotFoundError:
         return {}
 
-
-def upload(filename):
+def upload():
     with open("web.bin", "wb") as f:
-        pickle.dump(company[filename], f)
+        pickle.dump(web, f)
+
 def load_web():
     try:
         with open("web.bin", "rb") as f:
@@ -42,8 +43,7 @@ def load_web():
         return {}
 
 web={}
-web=load_web()
-
+web=load_web()  #this becomes satatype string instead of dict -->issue fixed
 # Load the existing users from the binary file
 users = load_users()
 company=load_company()
@@ -57,7 +57,6 @@ def save_mail(usera,subject,data):
     with open(usera,"wb") as f:
         pickle.dump(a,f)
 
-
 def load_mail(user):
     a=globals()[user]
     try:
@@ -65,7 +64,6 @@ def load_mail(user):
             return pickle.load(f)
     except FileNotFoundError:
         return {}
-
 
 def view_mail(user):
     a=load_mail(user)
@@ -101,7 +99,6 @@ def submenu3():
         else:
             print("Invalid choice")
 
-
 #submenu2
 def submenu2():
     while True:
@@ -133,8 +130,9 @@ def submenu2():
             print(company[filename])
             reply=input('Do you want to upload it to the web, reply with yes or no')
             if reply=='yes':
-                upload(filename)
-                sleep(10)
+                web[filename]=company[filename]
+                upload()
+                sleep(1)
             elif reply=='no':
                 break
                 #exit to list of files
@@ -184,19 +182,31 @@ def main_menu():
 def background_task():
     global company
     global web
-    comp=company
     while True:
-        for key in comp:
-            for sub  in web:
+        for key in company.keys():
+            for sub in web.copy():
                 if key==sub:
-                    if comp[key]['status']=='online':
-                        usera = 'admin'
-                        subject='leak detected'
-                        data="there has been a leak of foldet {key}"
-                        print("leak detected")
-                        save_mail(usera,subject,data)
+                    usera = 'admin'
+                    subject='leak detected'
+                    data="there has been a leak of foldername:",key," and has been dealt with"
+                    print("leak detected")
+                    del web[key]
+                    save_mail(usera,subject,data)
         sleep(0.1)
 
-daemon = Thread(target=background_task, daemon=True, name='Monitor')
+daemon = Thread(target=background_task, daemon=True)
 daemon.start()
-main_menu()
+
+'''for key in company.keys():
+    print(key)
+print(type(company))
+print(type(users))
+
+print('----------------------------')
+print(type(web))
+for key in web.keys():
+    print(key)
+'''
+
+main=Thread(target=main_menu,daemon=False)
+main.start()
