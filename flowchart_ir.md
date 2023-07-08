@@ -1,17 +1,15 @@
 ```mermaid
-graph LR
-    A[Start] --> B[Cloud-Based Point of Sale (POS) System]
-    B --> C[Inventory Management in the Cloud]
-    B --> D[Customer Relationship Management (CRM) in the Cloud]
-    C --> E[Real-Time Stock Updates]
-    C --> F[Automated Reordering]
-    D --> G[Customer Database]
-    D --> H[Customer Analytics]
-    G --> I[Targeted Marketing Campaigns]
-    H --> I
-    I --> J[Increased Customer Engagement]
-    J --> K[Improved Customer Satisfaction]
-    K --> L[Repeat Business]
-    L --> M[Business Growth]
-    M --> N[End]
+graph TB
+A[Cloud Computing] --> B[On-demand Network Access]
+A --> C[Resource Pooling]
+A --> D[Rapid Elasticity]
+A --> E[Measured Service]
+B --> F[Access Services Anytime]
+B --> G[Connectivity from Anywhere]
+C --> H[Shared Infrastructure]
+C --> I[Multi-tenancy]
+D --> J[Scale Resources Up or Down]
+D --> K[Pay for Actual Usage]
+E --> L[Monitor and Optimize Performance]
+E --> M[Pay for Actual Usage]
 ```
