@@ -1,15 +1,25 @@
 ```mermaid
-graph TB
-A[Cloud Computing] --> B[On-demand Network Access]
-A --> C[Resource Pooling]
-A --> D[Rapid Elasticity]
-A --> E[Measured Service]
-B --> F[Access Services Anytime]
-B --> G[Connectivity from Anywhere]
-C --> H[Shared Infrastructure]
-C --> I[Multi-tenancy]
-D --> J[Scale Resources Up or Down]
-D --> K[Pay for Actual Usage]
-E --> L[Monitor and Optimize Performance]
-E --> M[Pay for Actual Usage]
+graph LR
+    A[Web Development]
+    B[Technology Used]
+    C[Career Opportunities]
+    D[Real Life Applications]
+
+    A -->|Involves| B
+    A -->|Career Roles| C
+    A -->|Applied in| D
+
+    B -->|HTML, CSS, JS| E[Front-End]
+    B -->|Server-side PHP, SQL| F[Back-End]
+    B -->|Both Front-End & Back-End| G[Full-Stack]
+
+    C -->|Front-End Developer| E
+    C -->|Back-End Developer| F
+    C -->|Full-Stack Developer| G
+
+    D --> Websites
+    D --> Web-Apps
+    D --> E-commerce
+    D --> Blogs
+
 ```
