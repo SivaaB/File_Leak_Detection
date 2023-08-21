@@ -21,5 +21,4 @@ graph LR
     D --> Web-Apps
     D --> E-commerce
     D --> Blogs
-
 ```
