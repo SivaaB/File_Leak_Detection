@@ -1,15 +1,6 @@
 ```mermaid
- graph TD;
-    A[Main Menu]-->B[Sign up or log in]
-    B -->|New User| C[Create Account]
-    B -->|Existing User| D[Login]
-    D --> E[SubMenu 2]
-    E -->|Create File| F[Create]
-    E -->|Open File| G[Open]
-    G -->|Upload File| H[Upload]
-    E -->|Mail| I[SubMenu 3]
-    I -->|Send Email| J[Send]
-    I -->|View Inbox| K[View]
-    L[Background Task - Daemon Thread] --> M[Compares Web and File Dictionary]
-    M -->|If match, file leak has been detected| N[Sends an email to admin]
+graph TD;
+  P2[Paper 2] --> A[Enterprise Firewall Anomalies];
+  P2 --> C(Algorithm: Reduce Rule Count While Maintaining Security Policy);
+  P2 --> D(Logic : Propositional Logic-Based Model for Rule Specification);
  ```
