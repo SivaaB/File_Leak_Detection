@@ -1,6 +1,6 @@
 ```mermaid
 graph LR
-A[Cloud Computing] --> B[On-demand Network Access]
+A[What? - Disaster Managment is the process of effectively dealing with naatural calamities and the consequences that follow with it.] --> B[On-demand Network Access]
 A --> C[Resource Pooling]
 A --> D[Rapid Elasticity]
 A --> E[Measured Service]
