@@ -1,24 +1,9 @@
 ```mermaid
 graph LR
-    A[Web Development]
-    B[Technology Used]
-    C[Career Opportunities]
-    D[Real Life Applications]
-
-    A -->|Involves| B
-    A -->|Career Roles| C
-    A -->|Applied in| D
-
-    B -->|HTML, CSS, JS| E[Front-End]
-    B -->|Server-side PHP, SQL| F[Back-End]
-    B -->|Both Front-End & Back-End| G[Full-Stack]
-
-    C -->|Front-End Developer| E
-    C -->|Back-End Developer| F
-    C -->|Full-Stack Developer| G
-
-    D --> Websites
-    D --> Web-Apps
-    D --> E-commerce
-    D --> Blogs
+A[What?] --> B{Identify the type of pollution (oil spill, chemical leak, etc.)}
+B --> C{Why did it occur? (accident, negligence, natural disaster, etc.)}
+C --> D{How can it be contained and mitigated? (containment booms, dispersants, remediation techniques, etc.)}
+D --> A{What are the environmental and societal impacts? (wildlife damage, health risks, economic losses, etc.)}
+D -->|Success| E[Recovery and restoration efforts]
+E -->|Failure| A
 ```
