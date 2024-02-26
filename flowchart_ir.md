@@ -6,6 +6,4 @@ B --> C{Determine cause (accident, negligence, etc.)}
 C --> D{Implement containment & mitigation}
 D -->|Success| E[Recovery & restoration]
 D -->|Failure| A
-E --> F{Assess environmental & societal impacts}
-E -->|Severe impact| A
 ```
