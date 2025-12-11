@@ -1,40 +1,29 @@
 ```mermaid
 graph TD
-    A["FSM Plan<br/>9 states"] --> B["PlanEvaluator<br/>LLMeval Simulation"]
+    A["Scene Description<br/>'Child + hot pot'"] --> B["PlanningOrchestrator<br/>Algorithm 1"]
     
-    B --> C["7 Dimensions<br/>Table 6 Appendix B"]
+    B --> C["Step 1: SceneAnalyzer<br/>Entity + Hazard"]
+    C --> D["Step 2: PlanGenerator<br/>Initial FSM<br/>9 states"]
+    D --> E["Step 3: PlanEvaluator<br/>7 Dimensions<br/>Score: 6.2/10"]
     
-    C --> D["STATE_COVERAGE<br/>Required: INITIAL/ASSESS/MONITOR"]
-    C --> E["TRANSITION_COVERAGE<br/>1-2.5 avg transitions/state"]
-    C --> F["COMPLEXITY<br/>5-10 states optimal"]
-    C --> G["SAFETY ⭐<br/>safety_priority=True + monitor"]
-    C --> H["SCALABILITY<br/>ALL_ACTIONS validation"]
-    C --> I["UX<br/>distract > grab"]
-    C --> J["COHERENCE<br/>No terminal dead-ends"]
+    E --> F{"6.2 < 6.5<br/>Benchmark?"}
+    F -->|YES| G["ITERATION 1<br/>Feedback:<br/>'Add ENSURE_SAFETY'"]
+    G --> H["Regenerate +<br/>Synthetic Fix<br/>safety_priority=True"]
+    H --> I["Re-evaluate<br/>Score: 7.8/10<br/>Δ +1.6"]
     
-    D --> K["Scores: 8.0 9.0 9.0 8.0 8.0 7.0 8.0"]
-    E --> K
-    F --> K
-    G --> K
-    H --> K
-    I --> K
-    J --> K
+    I --> J{"7.8 > 6.5?"}
+    J -->|YES| K["✓ PLANNING COMPLETE<br/>Final Score: 7.8/10<br/>1 iteration"]
+    J -->|NO| L["ITERATION 2..."]
     
-    K --> L["OVERALL: 8.0/10"]
-    
-    L --> M["FEEDBACK:<br/>✓ Strong safety<br/>✗ Improve UX"]
-    L --> N["SUGGESTIONS:<br/>Add ENSURE_SAFETY"]
-    
-    M --> O["→ Algorithm 1<br/>Feedback Loop"]
-    N --> O
+    F -->|NO| K
     
     style B fill:#e8f5e8
-    style C fill:#f3e5f5
-    style G fill:#ffccbc
-    style K fill:#fff3e0
-    style L fill:#e3f2fd
-    style O fill:#ffebee
+    style E fill:#f3e5f5
+    style I fill:#c8e6c9
+    style K fill:#e8f5e8
+    style G fill:#ffebee
+    style H fill:#fff3e0
     
-    classDef safety fill:#ffccbc
-    classDef scores fill:#fff3e0
+    classDef success fill:#c8e6c9
+    classDef feedback fill:#ffebee
  ```
