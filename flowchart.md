@@ -1,32 +1,40 @@
 ```mermaid
 graph TD
-    A["Scene Analysis<br/>thermal + child"] --> B["PlanGenerator<br/>LLMgen Simulation"]
+    A["FSM Plan<br/>9 states"] --> B["PlanEvaluator<br/>LLMeval Simulation"]
     
-    B --> C["INITIAL<br/>assess_situation"]
-    C --> D["ASSESS_HAZARD ⭐<br/>safety_priority=True<br/>check_proximity"]
+    B --> C["7 Dimensions<br/>Table 6 Appendix B"]
     
-    D -->|high_risk| E["URGENT_ACTION<br/>grab, lift, lower"]
-    D -->|medium_risk| F["PREVENTIVE_ACTION<br/>distract ⭐, move_away"]
+    C --> D["STATE_COVERAGE<br/>Required: INITIAL/ASSESS/MONITOR"]
+    C --> E["TRANSITION_COVERAGE<br/>1-2.5 avg transitions/state"]
+    C --> F["COMPLEXITY<br/>5-10 states optimal"]
+    C --> G["SAFETY ⭐<br/>safety_priority=True + monitor"]
+    C --> H["SCALABILITY<br/>ALL_ACTIONS validation"]
+    C --> I["UX<br/>distract > grab"]
+    C --> J["COHERENCE<br/>No terminal dead-ends"]
     
-    E --> G["ENSURE_SAFETY ⭐<br/>verify_safety, monitor"]
-    F --> H["MONITOR_SITUATION<br/>monitor, check_proximity"]
+    D --> K["Scores: 8.0 9.0 9.0 8.0 8.0 7.0 8.0"]
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
     
-    G --> H
-    H -->|hazard_persists| D
-    H -->|stable| I["TERMINAL"]
+    K --> L["OVERALL: 8.0/10"]
     
-    J["CALL_FOR_HELP ⭐<br/>call_for_help"] --> I
+    L --> M["FEEDBACK:<br/>✓ Strong safety<br/>✗ Improve UX"]
+    L --> N["SUGGESTIONS:<br/>Add ENSURE_SAFETY"]
+    
+    M --> O["→ Algorithm 1<br/>Feedback Loop"]
+    N --> O
     
     style B fill:#e8f5e8
-    style D fill:#ffccbc
-    style E fill:#ffcdd2
-    style F fill:#c8e6c9
+    style C fill:#f3e5f5
     style G fill:#ffccbc
-    style H fill:#e0f2f1
-    style I fill:#f5f5f5
-    style J fill:#ffccbc
+    style K fill:#fff3e0
+    style L fill:#e3f2fd
+    style O fill:#ffebee
     
     classDef safety fill:#ffccbc
-    classDef cognitive fill:#c8e6c9
-    classDef urgent fill:#ffcdd2
+    classDef scores fill:#fff3e0
  ```
